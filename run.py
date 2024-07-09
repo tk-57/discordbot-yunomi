@@ -36,7 +36,7 @@ EMOJI_IDS = {
 
 @client.tree.command(name='dice')
 @app_commands.describe(sides="ダイスの数")
-async def create_custom(interaction: discord.Interaction, sides: int):
+async def create_custom(interaction: discord.Interaction, sides: app_commands.Range[int, 1, 20]):
     """ダイス振れます"""
     results = []
     stamps = ""
