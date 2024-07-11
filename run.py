@@ -35,12 +35,12 @@ EMOJI_IDS = {
 }
 
 @client.tree.command(name='dice')
-@app_commands.describe(sides="ダイスの数")
-async def create_custom(interaction: discord.Interaction, sides: app_commands.Range[int, 1, 20]):
+@app_commands.describe(amount="ダイスの数")
+async def create_custom(interaction: discord.Interaction, amount: app_commands.Range[int, 1, 20]):
     """ダイス振れます"""
     results = []
     stamps = ""
-    for _ in range(sides):
+    for _ in range(amount):
         result = random.randint(1, 6)
         results.append(result)
         emoji_name, emoji_id = EMOJI_IDS[result].split(':')
